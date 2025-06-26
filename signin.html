@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/signin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Sign in</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Login</h1>
+      <p class="subtitle">
+        Enter your credentials to access your Cheepay wallet
+      </p>
+
+      <form id="loginForm" action="#" method="post">
+        <div class="toggle-buttons">
+          <button class="toggle-button" id="emailBtn" onclick="switchToEmail()">
+            Email
+          </button>
+          <button class="toggle-button" id="phoneBtn" onclick="switchToPhone()">
+            Phone
+          </button>
+        </div>
+
+        <div class="input-group">
+          <label id="inputLabel" for="email">Email</label>
+          <input
+            type="email"
+            id="userInput"
+            name="email"
+            placeholder="example@gmail.com"
+            required
+          />
+        </div>
+
+        <a href="#" class="reset-password">Reset Password</a>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password"
+              required
+            />
+            <span
+              class="material-symbols-outlined toggle-password" style="color: rgb(158, 158, 158)"
+              onclick="togglePassword(this, 'password')"
+              >Visibility</span
+            >
+          </div>
+        </div>
+
+        <div class="bottom-bar">
+          <p class="signup-prompt">
+            Not yet a user? <a href="#"> Create Account</a>
+          </p>
+          <button type="submit" class="signin-btn">Sign in</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const emailBtn = document.getElementById("emailBtn");
+      const phoneBtn = document.getElementById("phoneBtn");
+
+      function switchToEmail() {
+        const input = document.getElementById("userInput");
+        const label = document.getElementById("inputLabel");
+
+        input.type = "email";
+        input.value = "";
+        input.placeholder = "example@gmail.com";
+        label.textContent = "Email";
+
+        // Update active button for email
+        emailBtn.classList.add("active");
+        phoneBtn.classList.remove("active");
+      }
+
+      function switchToPhone() {
+        const input = document.getElementById("userInput");
+        const label = document.getElementById("inputLabel");
+
+        input.type = "tel";
+        input.value = "";
+        input.placeholder = "090 xxx xxxx";
+        label.textContent = "Phone";
+
+        // Update active button for phone
+        phoneBtn.classList.add("active");
+        emailBtn.classList.remove("active");
+      }
+
+      switchToEmail();
+
+      // Toggle Password
+      function togglePassword(icon, inputId) {
+        const input = document.getElementById(inputId);
+        const isHidden = input.type === "password";
+
+        input.type = isHidden ? "text" : "password";
+        icon.textContent = isHidden ? "visibility_off" : "visibility";
+      }
+    </script>
+  </body>
+</html>
