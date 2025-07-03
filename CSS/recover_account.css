@@ -18,12 +18,13 @@
   }
 
   .icon-container {
-    width: 100%;
-    max-width: 360px;
-    background-color: rgb(242, 242, 242);
-    margin-bottom: 10px;
-    height: 3.1rem;
-  }
+  width: 100%;
+  max-width: 360px;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  background-color: rgb(242, 242, 242);
+}
 
 .icon-wrapper {
   height: 3.1rem;
