@@ -279,7 +279,7 @@ select,
 }
 
 .terms-privacy-prompt a {
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 14px;
   color: rgb(26, 102, 201);
   text-underline-offset: 4px;
@@ -313,7 +313,7 @@ select,
 }
 
 .signin-prompt a {
-  font-weight: bolder;
+  font-weight: bold;
   color: rgb(26, 102, 201);
   text-underline-offset: 4px;
   font-family: Arial;
