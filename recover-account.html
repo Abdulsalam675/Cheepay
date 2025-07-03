@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/recover_account.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Recover account</title>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="icon-container">
+        <div class="icon-wrapper">
+          <span class="material-symbols-outlined back-icon" tabindex="0"
+            >arrow_back_ios</span
+          >
+
+          <div class="title-div">
+            <span class="title">Forgot Password</span>
+          </div>
+
+          <div class="hidden-div"></div>
+        </div>
+      </div>
+
+      <div class="container-2">
+        <h2>Recover Account</h2>
+        <p class="subtitle">
+          Gain access to your account in on time with ease.
+        </p>
+
+        <form id="form" action="#">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="example@gmail.com" />
+          </div>
+
+          <div class="input-group">
+            <label for="password">New Password</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter new password"
+              />
+
+              <span
+                class="material-symbols-outlined toggle-password"
+                style="color: rgb(158, 158, 158)"
+                tabindex="0"
+                onclick="togglePassword(this, 'password')"
+                >Visibility</span
+              >
+            </div>
+          </div>
+
+          <!-- Overlay -->
+          <div id="overlay" class="overlay hidden"></div>
+
+          <!-- Alert Box -->
+          <div id="customAlert" class="alert hidden">
+            <p>Please enter your email</p>
+            <button type="button" class="close-alert" onclick="closeAlert()">
+              Close
+            </button>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn">Continue</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Back Icon
+      document.querySelector(".back-icon").addEventListener("click", () => {
+        history.back();
+      });
+
+      // Toggle Password
+      function togglePassword(icon, inputId) {
+        const input = document.getElementById(inputId);
+        const isHidden = input.type === "password";
+
+        input.type = isHidden ? "text" : "password";
+        icon.textContent = isHidden ? "visibility_off" : "visibility";
+      }
+
+      //Form Validation
+      const form = document.getElementById("form");
+      const alertBox = document.getElementById("customAlert");
+      const overlay = document.getElementById("overlay");
+      const submitBtn = document.querySelector(".submit-btn");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+
+        if (!email) {
+          overlay.classList.remove("hidden");
+          alertBox.classList.remove("hidden");
+          submitBtn.classList.add("no-hover");
+        } else {
+          overlay.classList.add("hidden");
+          alertBox.classList.add("hidden");
+        }
+      });
+
+      function closeAlert() {
+        overlay.classList.add("hidden");
+        alertBox.classList.add("hidden");
+        submitBtn.classList.remove("no-hover");
+      }
+    </script>
+  </body>
+</html>

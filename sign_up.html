@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/sign_up.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>sign up</title>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="icon-container">
+        <div class="icon-wrapper">
+          <span class="material-symbols-outlined back-icon" tabindex="0"
+            >arrow_back_ios</span
+          >
+
+          <div class="title-div">
+            <span class="title">Signup</span>
+          </div>
+
+          <div class="hidden-div"></div>
+        </div>
+      </div>
+
+      <div class="container-2">
+        <form action="#" method="post">
+          <h2>Create an Account</h2>
+          <p class="subtitle">
+            Please fill all the information correctly to enable us create an
+            account for you.
+          </p>
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@gmail.com"
+            required
+          />
+
+          <div class="names-container">
+            <div>
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="e.g, Marie"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="e.g, Sophie"
+                required
+              />
+            </div>
+          </div>
+
+          <label for="phone">Phone Number</label>
+          <div class="phone-wrapper">
+            <div class="img-container" onclick="showMessage()">
+              <img src="./Image/ngn.png" alt="Nigeria Flag" class="flag" />
+            </div>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="090 xxx xxxx"
+              required
+            />
+          </div>
+
+          <label for="state">State of Residence</label>
+          <div class="select-container">
+            <select id="state" required>
+              <option value="" disabled selected hidden>Select state</option>
+            </select>
+          </div>
+
+          <label for="dob">Date of Birth</label>
+          <div class="select-container">
+            <select id="dob">
+              <option value="" disabled selected hidden>
+                Select date of birth
+              </option>
+            </select>
+          </div>
+
+          <label for="gender">Gender</label>
+          <div class="gender-options">
+            <button type="button"
+              class="gender-box"
+              id="maleBox"
+              data-gender="Male"
+              onclick="selectMale()"
+            >
+              <div class="gender-icon">
+                <svg
+                  fill="rgb(26, 102, 201)"
+                  width="18px"
+                  height="18px"
+                  viewBox="0 0 32 32"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 28q0 0.832 0.576 1.44t1.44 0.576h20q0.8 0 1.408-0.576t0.576-1.44q0-1.44-0.672-2.912t-1.76-2.624-2.496-2.144-2.88-1.504q1.76-1.088 2.784-2.912t1.024-3.904v-1.984q0-3.328-2.336-5.664t-5.664-2.336-5.664 2.336-2.336 5.664v1.984q0 2.112 1.024 3.904t2.784 2.912q-1.504 0.544-2.88 1.504t-2.496 2.144-1.76 2.624-0.672 2.912z"
+                  ></path>
+                </svg>
+              </div>
+              <p>
+                This will help us in verifying your account <br />
+                <strong>Male</strong>
+              </p>
+            </button>
+
+            <button type="button"
+              class="gender-box"
+              id="femaleBox"
+              data-gender="female"
+              onclick="selectFemale()"
+            >
+              <div class="gender-icon">
+                <svg
+                  fill="rgb(26, 102, 201)"
+                  height="18px"
+                  width="18px"
+                  version="1.1"
+                  id="Filled_Icons"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 24 24"
+                  enable-background="new 0 0 24 24"
+                  xml:space="preserve"
+                >
+                  <g id="Female-User-Filled">
+                    <path
+                      d="M20,24v-5c0-2.76-2.14-5-4.9-5H15l0,0l0,0c3.38,0,5.1-2.1,5.1-2.1S17,10.03,17,6c0-2.76-2.29-5-5.05-5h0.1
+		C9.29,1,7.02,3.24,7.02,6c0,3.97-3.11,5.9-3.11,5.9S4.63,14,8,14h1c-2.76,0-5,2.24-5,5v5"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <p>
+                This will help us in verifying your account <br />
+                <strong>Female</strong>
+              </p>
+            </div>
+          </button>
+
+          <!--Hidden input to submit selected gender-->
+          <input type="hidden" name="gender" id="genderInput" value="" />
+
+          <label for="pin">Transaction Pin</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              name="pin"
+              id="pin"
+              placeholder="Enter wallet pin"
+              required
+              maxlength="4"
+              minlength="4"
+            />
+            <span
+              class="material-symbols-outlined toggle-pin"
+              style="color: rgb(158, 158, 158)"
+              onclick="togglePin(this, 'pin')"
+              >Visibility</span
+            >
+          </div>
+
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter security password"
+              required
+            />
+            <span
+              class="material-symbols-outlined toggle-password"
+              style="color: rgb(158, 158, 158)"
+              onclick="togglePassword(this, 'password')"
+              >Visibility</span
+            >
+          </div>
+
+          <label for="invite-code">Invitation Code?</label>
+          <input
+            type="tel"
+            id="invite-code"
+            placeholder="Enter invite code (optional)"
+            maxlength="4"
+            minlength="4"
+          />
+
+          <span class="terms-privacy-prompt">
+            By clicking 'Signup', you agree to our <a href="#">Terms</a> &
+            <br />
+            <a href="#">Privacy of service</a>
+          </span>
+
+          <button class="signup-btn" type="submit">Signup</button>
+
+          <p class="signin-prompt">
+            Have an Account? <a href="./index.html">Sign in</a>
+          </p>
+
+          <!-- Overlay -->
+          <div id="overlay" class="overlay hidden"></div>
+
+          <!-- Alert Box -->
+          <div id="customAlert" class="alert hidden">
+            <p>We only support nigerian customers at the moment</p>
+            <button type="button" class="close-alert" onclick="closeAlert()">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Back Icon
+      document.querySelector(".back-icon").addEventListener("click", () => {
+        history.back();
+      });
+
+      // Alert for phone
+      const alertBox = document.getElementById("customAlert");
+      const overlay = document.getElementById("overlay");
+
+      function showMessage() {
+        overlay.classList.remove("hidden");
+        alertBox.classList.remove("hidden");
+      }
+
+      function closeAlert() {
+        overlay.classList.add("hidden");
+        alertBox.classList.add("hidden");
+      }
+
+      // Toggle between Male and Female
+      const male = document.getElementById("maleBox");
+      const female = document.getElementById("femaleBox");
+      const genderInput = document.getElementById("genderInput");
+
+      function selectMale() {
+        male.classList.add("show");
+        female.classList.remove("show");
+        genderInput.value = "Male"
+      }
+
+      function selectFemale() {
+        female.classList.add("show");
+        male.classList.remove("show");
+        genderInput.value = "Female"
+      }
+
+      selectMale()
+
+      // Toggle Pin
+      function togglePin(icon, inputId) {
+        const input = document.getElementById(inputId);
+        const isHidden = input.type === "password";
+        input.type = isHidden ? "tel" : "password";
+        icon.textContent = isHidden ? "visibility_off" : "visibility";
+      }
+      // Toggle Password
+
+      function togglePassword(icon, inputId) {
+        const input = document.getElementById(inputId);
+        const isHidden = input.type === "password";
+        input.type = isHidden ? "text" : "password";
+        icon.textContent = isHidden ? "visibility_off" : "visibility";
+      }
+    </script>
+  </body>
+</html>
