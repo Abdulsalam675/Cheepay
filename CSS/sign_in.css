@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+.login-container {
+  width: 90%;
+  max-width: 360px;
+  margin: auto;
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 0;
+  color: #000;
+  user-select: none;
+}
+
+.subtitle {
+  font-size: 15px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  user-select: none;
+  color: #000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toggle buttons (Email/Phone) */
+.toggle-buttons {
+  display: flex;
+  margin-bottom: 30px;
+  border-radius: 35px;
+  padding: 8px;
+  background: rgb(248, 249, 249);
+}
+
+.toggle-button {
+  padding: 1rem;
+  flex: 1;
+  color: #000;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  user-select: none;
+  transition: 0.3s ease;
+}
+
+.toggle-button.active {
+  background-color: white;
+}
+
+/*Input Fields*/
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 14px;
+  padding-left: 7px;
+  color: #000;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.input-group input {
+  padding: 1.2rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+  background: rgb(248, 249, 249);
+  outline: none;
+}
+
+.password-wrapper {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: rgb(248, 249, 249);
+  display: flex;
+}
+
+.password-wrapper span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+}
+
+.input-group .password-wrapper input[type="password"] {
+  font-weight: bolder;
+  background-color: transparent;
+}
+
+.input-group .password-wrapper input {
+  border: none;
+}
+
+.input-group input::placeholder {
+  font-weight: normal;
+}
+
+/*Reset Password Link*/
+.reset-password {
+  text-align: left;
+  color: rgb(26, 102, 201);
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 15px;
+  left: auto;
+  right: auto;
+  width: 90%;
+  max-width: 360px;
+  padding: 2rem 0;
+  z-index: 9;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Create account prompt */
+.signup-prompt {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 7px;
+  color: #000;
+}
+
+.signup-prompt a {
+  font-weight: bolder;
+  color: rgb(26, 102, 201);
+}
+
+/* Overlay background */
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+/* Alert box */
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%;
+  max-width: 360px;
+  z-index: 9999;
+  text-align: center;
+  animation: zoomIn 0.3s ease forwards;
+}
+
+.alert p {
+  margin-bottom: 23px;
+  color: #000;
+  font-size: 14px;
+}
+
+.close-alert {
+  background-color: rgb(26, 102, 201);
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.close-alert:hover {
+  background-color: rgba(4, 92, 180, 0.2);
+  color: #eee;
+  transition: background-color 0.3s ease;
+}
+
+.alert.hidden,
+.overlay.hidden {
+  display: none;
+}
+
+/* Zoom-in keyframe */
+@keyframes zoomIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/*Sign In Button*/
+.submit-btn {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: rgb(26, 102, 201);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: rgba(4, 92, 180, 0.2);
+  color: #eee;
+}
+
+/* Override hover when alert is showing */
+.submit-btn.no-hover:hover {
+  background-color: rgb(26, 102, 201) !important;
+  color: white !important;
+}

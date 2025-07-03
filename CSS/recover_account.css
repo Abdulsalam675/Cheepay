@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(250, 250, 250);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .container-1 {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  .icon-container {
+    width: 100%;
+    max-width: 360px;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 10px;
+  }
+
+  .icon-wrapper {
+    height: 3.1rem;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .back-icon {
+    width: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #000;
+  }
+
+  .back-icon:focus {
+    outline: none;
+  }
+
+  .title-div {
+    display: flex;
+    align-items: center;
+  }
+
+  .hidden-div {
+    width: 40px;
+    height: 100%;
+  }
+
+  .container-2 {
+    width: 90%;
+    max-width: 360px;
+    margin: auto;
+    height: 100%;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin: 0;
+    color: #000;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*Input Fields*/
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-group label {
+    font-size: 14px;
+    padding-left: 7px;
+    color: #000;
+    margin-bottom: 8px;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .input-group input {
+    padding: 1.2rem 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    border-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255);
+    outline: none;
+    box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+  }
+
+  .password-wrapper {
+    width: 100%;
+    border: 1px solid transparent;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+    display: flex;
+  }
+
+  .password-wrapper span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .input-group .password-wrapper input {
+    background-color: transparent;
+    border: none;
+  }
+
+  /* Overlay background */
+  .overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+  }
+
+  /* Alert box */
+  .alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 15px;
+    width: 90%;
+    max-width: 360px;
+    z-index: 9999;
+    text-align: center;
+    animation: zoomIn 0.3s ease forwards;
+  }
+
+  .alert p {
+    margin-bottom: 23px;
+    color: #000;
+    font-size: 14px;
+  }
+
+  .close-alert {
+    background-color: rgb(26, 102, 201);
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .close-alert:hover {
+    background-color: rgba(4, 92, 180, 0.2);
+    transition: background-color 0.3s ease;
+    color: #eee;
+  }
+  .alert.hidden,
+  .overlay.hidden {
+    display: none;
+  }
+
+  /* Zoom-in keyframe */
+  @keyframes zoomIn {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(26, 102, 201);
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    background-color: rgb(214, 231, 249);
+    color: #eee;
+  }
+
+  /* Override hover when alert is showing */
+  .submit-btn.no-hover:hover {
+    background-color: rgb(26, 102, 201) !important;
+    color: white !important;
+  }
+
+  .hidden {
+    display: none;
+  }
