@@ -282,7 +282,7 @@ select,
   font-weight: bolder;
   font-size: 14px;
   color: rgb(26, 102, 201);
-  text-underline-offset: 3px;
+  text-underline-offset: 10px;
 }
 
 /*SignUp Button*/
