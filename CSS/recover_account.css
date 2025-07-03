@@ -132,6 +132,7 @@ form {
 .input-group .password-wrapper input {
   background-color: transparent;
   border: none;
+  box-shadow: none;
 }
 
 /* Overlay and Alert */
