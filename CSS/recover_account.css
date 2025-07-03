@@ -20,7 +20,6 @@
   .icon-container {
   width: 100%;
   max-width: 360px;
-  position: fixed;
   top: 0;
   z-index: 9999;
   background-color: rgb(242, 242, 242);
@@ -33,7 +32,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
 }
 
 .back-icon {
@@ -56,6 +54,7 @@
 
 .spacer {
   width: 40px; /* same as back-icon to keep title centered */
+  height: 100%;
 }
 
   .container-2 {
