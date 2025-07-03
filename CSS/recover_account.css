@@ -24,7 +24,7 @@
     margin-bottom: 10px;
   }
 
-  .icon-wrapper {
+.icon-wrapper {
   height: 3.1rem;
   width: 90%;
   margin: 0 auto;
@@ -36,8 +36,8 @@
 
 .back-icon {
   font-size: 1.3rem;
-  cursor: pointer;
   color: #000;
+  cursor: pointer;
   width: 40px;
   display: flex;
   align-items: center;
@@ -53,7 +53,7 @@
 }
 
 .spacer {
-  width: 40px; /* Matches width of back icon to keep title centered */
+  width: 40px; /* Matches the width of back-icon */
 }
 
   .container-2 {
