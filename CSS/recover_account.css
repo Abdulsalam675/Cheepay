@@ -45,8 +45,8 @@
 
 .title-center {
   position: absolute;
-  left: 0;
-  transform: translate(-50%, -50%);
+  left: 50%;
+  transform: translate(-50%);
   font-size: 1.1rem;
   font-weight: bold;
   color: #000;
