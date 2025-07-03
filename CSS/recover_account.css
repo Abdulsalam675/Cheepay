@@ -53,7 +53,7 @@
   color: #000;
 }
 
-.spacer {
+.hidden {
   width: 40px; /* Matches the width of back-icon */
   height: 100%;
   border: 1px solid black;
