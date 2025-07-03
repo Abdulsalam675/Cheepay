@@ -25,36 +25,36 @@
   }
 
   .icon-wrapper {
-    height: 3.1rem;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  height: 3.1rem;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
 
-  .back-icon {
-    width: 40px;
-    display: flex;
-    align-items: center;
-    font-size: 1.3rem;
-    cursor: pointer;
-    color: #000;
-  }
+.back-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #000;
+  width: 40px;
+  display: flex;
+  align-items: center;
+}
 
-  .back-icon:focus {
-    outline: none;
-  }
+.title-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000;
+}
 
-  .title-div {
-    display: flex;
-    align-items: center;
-  }
-
-  .hidden-div {
-    width: 40px;
-    height: 100%;
-  }
+.spacer {
+  width: 40px; /* Matches width of back icon to keep title centered */
+}
 
   .container-2 {
     width: 90%;
