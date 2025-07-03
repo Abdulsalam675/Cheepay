@@ -125,7 +125,7 @@ form {
 .reset-password {
   text-align: left;
   color: rgb(26, 102, 201);
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 10px;
   margin-bottom: 25px;
 }
@@ -151,8 +151,10 @@ form {
 }
 
 .signup-prompt a {
-  font-weight: bolder;
+  font-weight: bold;
   color: rgb(26, 102, 201);
+  text-underline-offset: 4px;
+  font-family: Arial;
 }
 
 /* Overlay background */
