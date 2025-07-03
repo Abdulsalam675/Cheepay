@@ -20,18 +20,18 @@
   .icon-container {
     width: 100%;
     max-width: 360px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(242, 242, 242);
     margin-bottom: 10px;
+    height: 3.1rem;
   }
 
 .icon-wrapper {
   height: 3.1rem;
   width: 90%;
+  height: 100%;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  position: relative;
 }
 
 .back-icon {
@@ -41,19 +41,21 @@
   width: 40px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .title-center {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50% -50%);
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   color: #000;
 }
 
 .spacer {
   width: 40px; /* Matches the width of back-icon */
+  height: 100%;
 }
 
   .container-2 {
