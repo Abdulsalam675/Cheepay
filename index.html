@@ -3,48 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
     <style>
       * {
-        padding: 0;
         margin: 0;
+        padding: 0;
         box-sizing: border-box;
       }
 
       body {
         font-family: "Lato", sans-serif;
-        background-color: rgb(255, 255, 255);
+        background-color: #fff;
       }
 
       .container {
         width: 90%;
         max-width: 360px;
         margin: auto;
-        height: 100%;
-        -webkit-tap-highlight-color: transparent;
       }
 
       header {
-        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 15px;
+        gap: 5px;
       }
 
-      img {
-        width: 30px;
-        height: 30px;
+      header img {
+        width: 28px;
+        height: 28px;
       }
 
       h1 {
         color: rgb(26, 102, 201);
-        font-size: 18px;
+        font-size: 17px;
         font-weight: bold;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 350px;
+        margin-top: 5px;
+        padding-top: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .slide-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding: 0 39px;
+      }
+
+      img {
+        width: 55%;
+        object-fit: cover;
+      }
+
+      .slide-prompt {
+        font-size: 15px;
+        margin-top: 5px;
+        padding: 0 70px;
+        margin-bottom: 50px;
+      }
+
+      .slide-prompt.slide2 {
+        padding: 0 77px;
+      }
+
+      .swiper-pagination {
+        margin-top: 8px;
+        text-align: center;
       }
 
       .button_div {
@@ -55,6 +107,8 @@
         position: fixed;
         bottom: 0;
         gap: 13px;
+        background-color: white;
+        padding: 10px 0;
       }
 
       button {
@@ -90,16 +144,18 @@
       .button_div p {
         font-size: 13px;
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         color: #000;
-        line-height: 1.3rem;
+        line-height: 1.1rem;
       }
 
       .button_div p a {
         color: rgb(26, 102, 201);
+        text-underline-offset: 2px;
         font-weight: bold;
       }
     </style>
+
     <title>Cheepay</title>
   </head>
   <body>
@@ -109,24 +165,113 @@
         <h1>Cheepay</h1>
       </header>
 
-      <div></div>
+      <!-- Swiper Slider -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <h2 class="slide-title">
+              <span style="color: rgb(26, 102, 201)">24/7</span> Reliable
+              Customer Service
+            </h2>
+            <img
+              src="./Image/onboarding9.png"
+              class="slide-image"
+              alt="Slide 1"
+            />
+            <p class="slide-prompt">
+              Quick online & offline channels for complaints and queries.
+            </p>
+          </div>
 
+          <div class="swiper-slide">
+            <h2 class="slide-title">
+              Airtime, Data, Cable & Electricity
+              <span style="color: rgb(26, 102, 201)"> Subscriptions</span>
+            </h2>
+            <img
+              src="./Image/onboarding10.jpeg"
+              class="slide-image"
+              alt="Slide 2"
+            />
+            <p class="slide-prompt slide2">
+              Get exciting rewards and cashbacks on Data/Airtime top-ups.
+            </p>
+          </div>
+
+          <div class="swiper-slide">
+            <h2 class="slide-title">Trade Gift Cards</h2>
+            <img
+              src="./Image/onboarding7.png"
+              class="slide-image"
+              alt="Slide 3"
+            />
+            <p class="slide-prompt">
+              Trade your gift cards for cash or other items instantly.
+            </p>
+          </div>
+
+          <div class="swiper-slide">
+            <h2 class="slide-title">Buy & Sell New & Used Gadgets and Items</h2>
+            <img
+              src="./Image/onboarding6.png"
+              class="slide-image"
+              alt="Slide 4"
+            />
+            <p class="slide-prompt-" style="padding: 0 90px">
+              Discover a marketplace for buying and selling gadgets and items.
+            </p>
+          </div>
+
+          <div class="swiper-slide">
+            <h2 class="slide-title">
+              Buy Real Social Media Followers, Shares, and Likes
+            </h2>
+            <img
+              src="./Image/onboarding5.png"
+              class="slide-image"
+              alt="Slide 5"
+            />
+            <p class="slide-prompt">
+              Boost your social media presence with authentic followers and
+              engagement.
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <!-- Auth Buttons -->
       <div class="button_div">
-        <a href="./sign_up.html"
+        <a href="#"
           ><button type="button" class="sign_up_button">
             Create a new account
           </button></a
         >
-
-        <a href="./sign_in.html"
+        <a href="#"
           ><button type="button" class="sign_in_button">Login</button></a
         >
-
         <p>
           By clicking the "Create an account", you agree to all our
           <a href="#">Terms</a> and <a href="#">Privacy of service</a>
         </p>
       </div>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
   </body>
 </html>
