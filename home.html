@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+        background-color: #fff;
+      }
+
+      .header-container {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 400px;
+        z-index: 999;
+        background-color: rgb(247, 247, 246);
+      }
+
+      .header {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 3px;
+        padding-bottom: 15px;
+      }
+
+      .profile {
+        width: 41px;
+        height: 41px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.02);
+        background-color: rgb(255, 255, 255);
+      }
+
+      .greeting {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container1 {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        padding-top: 4rem;
+        box-sizing: border-box;
+        overflow: none;
+        margin: 0 auto;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(247, 247, 247);
+      }
+
+      .container2 {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .balance-container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 9px 12px 3px 12px;
+        color: #fff;
+        margin-bottom: 12px;
+        background-color: rgb(26, 102, 201);
+        background-image: url(./Image/stripe-bg.png);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .drop-down-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .drop-down {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        color: #000;
+        font-size: 13px;
+        padding: 4px 9px;
+        font-weight: bold;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .drop-down .flag {
+        width: 16px;
+        height: 16px;
+        border: 1px solid green;
+        border-radius: 50%;
+        margin-right: 11px;
+      }
+
+      .balance {
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .actionBar {
+        padding: 13px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.01);
+      }
+
+      .action-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 13px;
+      }
+
+      .action-container button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 41px;
+        height: 41px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        background: rgba(210, 220, 239, 0.5);
+      }
+    
+      .action-container button:hover {
+        opacity: 0.3;
+        transition: 0.3s ease;
+      }
+
+      .activities {
+        padding: 13px;
+        text-align: center;
+        border-radius: 20px;
+        margin-bottom: 18px;
+        font-size: 13px;
+        box-shadow: px 1px 3px rgba(0, 0, 0, 0.01);
+        background-color: rgb(255, 255, 255);
+      }
+
+      .swiper {
+        width: 93%;
+        height: 85px;
+        margin: 0 auto;
+        border-radius: 13px;
+        overflow: hidden;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: content;
+      }
+
+      .swiper-pagination-bullet-active {
+        width: 12px;
+        opacity: 1;
+        border-radius: 10px;
+        background: rgb(26, 102, 201);
+        transition: 0.2s ease;
+      }
+
+      .make-payments-container {
+        padding: 10px 14px;
+        border-radius: 13px;
+        height: 100%;
+        margin-bottom: 10rem;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.01);
+        background-color: rgb(255, 255, 255);
+        user-select: none;
+      }
+
+      .grid {
+        margin-top: 8px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .payment-item {
+        padding: 9px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .payment-item:hover {
+        opacity: 0.2;
+        transition: 0.2s ease;
+      }
+
+      .payment-item .icon-div {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      .payment-item .title {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 1px;
+        color: #000;
+      }
+
+      .payment-item .subtitle {
+        font-size: 11px;
+        margin: 0;
+        padding: 0;
+        color: #555555;
+      }
+
+      .grid .payment-item:nth-child(1) {
+        background: rgba(26, 102, 201, 0.11);
+      }
+
+      .grid .payment-item:nth-child(2) {
+        background: rgba(233, 215, 50, 0.13);
+      }
+
+      .grid .payment-item:nth-child(3) {
+        background: rgba(226, 143, 66, 0.13);
+      }
+
+      .grid .payment-item:nth-child(4) {
+        background: rgba(119, 221, 106, 0.13);
+      }
+
+      .grid .payment-item:nth-child(5) {
+        background: rgba(127, 93, 252, 0.13);
+      }
+
+      .grid .payment-item:nth-child(6) {
+        background: rgba(253, 96, 245, 0.13);
+      }
+
+      .grid .payment-item:nth-child(5) .subtitle,
+      .grid .payment-item:nth-child(6) .subtitle {
+        font-size: 9px;
+      }
+
+      .payment-item .icon-div,
+      .circle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navBar {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 400px;
+        z-index: 999;
+        background-color: #fff;
+      }
+
+      .navBar-container {
+        display: flex;
+        width: 100%;
+        padding: 0px 0;
+        margin: 0 auto;
+      }
+
+      .icon-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: auto;
+        width: 100%;
+        font-size: 12px;
+        height: 38px;
+        text-decoration: none;
+        color: #888888;
+        padding: 9px 0;
+        user-select: none;
+      }
+
+      #home {
+        width: 70%;
+        color: rgb(26, 102, 201);
+      }
+
+      #history {
+        width: 85%;
+      }
+
+      .icon-container:hover {
+        background: rgba(0, 0, 0, 0.01);
+      }
+    </style>
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="header">
+        <div class="profile"></div>
+        <div class="greeting">
+          <span style="font-size: 13px; font-weight: bold"
+            >Hi👋, Abdulsalam</span
+          >
+          <div style="font-size: 9px; font-weight: bold; display: flex">
+            Wallet Tag:
+            <span id="invite_code">ZJOA40</span>
+            <div id="copy_icon" style="cursor: pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 36 36"
+                width="10px"
+                height="10px"
+                fill="#aaaaaa"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <path
+                  d="M27,3.56A1.56,1.56,0,0,0,25.43,2H5.57A1.56,1.56,0,0,0,4,3.56V28.44A1.56,1.56,0,0,0,5.57,30h.52V4.07H27Z"
+                />
+                <rect x="8" y="6" width="23" height="28" rx="2.5" ry="2.5" />
+                <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!--Head Phone-->
+        <div id="headphone-icon" style="margin-top: 5px">
+          <a href="./support.html">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="20px"
+              height="20px"
+              fill="#000"
+            >
+              <path
+                d="M12,1C7,1 3,5 3,10V17A3,3 0 0,0 6,20H9V12H5V10A7,7 0 0,1 12,3A7,7 0 0,1 19,10V12H15V20H18A3,3 0 0,0 21,17V10C21,5 16.97,1 12,1Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container1">
+      <div class="container2">
+        <div class="balance-container">
+          <div class="drop-down-container">
+            <span
+              style="
+                display: flex;
+                align-items: flex-start;
+                font-size: 11.5px;
+                font-weight: bold;
+                gap: 5px;
+                padding-top: 5px;
+              "
+              >NGN balance
+              <span
+                class="material-symbols-outlined toggle-password"
+                tabindex="0"
+                style="font-size: 16px; cursor: pointer; font-weight: normal"
+                >Visibility</span
+              ></span
+            >
+
+            <div class="drop-down">
+              <img src="./Image/ngn.png" alt="Nigeria Flag" class="flag" />
+              <span>NGN</span>
+              <span class="material-symbols-outlined" style="font-size: 1.3rem"
+                >stat_minus_1</span
+              >
+            </div>
+          </div>
+          <div class="balance">₦ <span style="font-size: 30px">0</span>.00</div>
+        </div>
+
+        <div class="actionBar">
+          <div class="action-container">
+            <button type="button" id="sendBtn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="21px"
+                height="21px"
+                fill="rgb(26, 102, 201)"
+                style="transform: rotate(-180deg); transform-origin: center"
+              >
+                <path
+                  d="M9 13.589L17.6066 4.98242L19.0208 6.39664L10.4142 15.0032H18V17.0032H7V6.00324H9V13.589Z"
+                ></path>
+              </svg>
+            </button>
+            <span>Send</span>
+          </div>
+
+          <div class="action-container">
+            <button type="button" id="depositBtn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="21px"
+                height="21px"
+                fill="rgb(26, 102, 201)"
+              >
+                <path
+                  d="M9 13.589L17.6066 4.98242L19.0208 6.39664L10.4142 15.0032H18V17.0032H7V6.00324H9V13.589Z"
+                ></path>
+              </svg>
+            </button>
+            <span>Deposit</span>
+          </div>
+
+          <div class="action-container">
+            <button type="button" id="saveBtn">
+              <div id="piggy-bank">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="20px"
+                  height="20px"
+                  fill="rgb(26, 102, 201)"
+                >
+                  <path
+                    d="M19.83 7.5L17.56 5.23C17.63 4.81 17.74 4.42 17.88 4.08C17.96 3.9 18 3.71 18 3.5C18 2.67 17.33 2 16.5 2C14.86 2 13.41 2.79 12.5 4H7.5C4.46 4 2 6.46 2 9.5S4.5 21 4.5 21H10V19H12V21H17.5L19.18 15.41L22 14.47V7.5H19.83M13 9H8V7H13V9M16 11C15.45 11 15 10.55 15 10S15.45 9 16 9C16.55 9 17 9.45 17 10S16.55 11 16 11Z"
+                  />
+                </svg>
+              </div>
+            </button>
+            <span>Save</span>
+          </div>
+
+          <div class="action-container">
+            <button type="button" id="earnBtn">
+              <img
+                src="./Image/gift-box.gif"
+                alt="gift-box"
+                style="
+                  max-width: 40px;
+                  max-height: 40px;
+                  margin-right: 10px;
+                  margin-bottom: 5px;
+                  object-fit: contain;
+                "
+              />
+            </button>
+            <span>Earn</span>
+          </div>
+        </div>
+
+        <div class="activities">
+          <span style="color: #333">No Activities Yet!</span>
+        </div>
+
+        <!-- Image slider -->
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./Image/onboarding10.jpeg" alt="Image 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./Image/onboarding5.png" alt="Imge 2" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="make-payments-container">
+          <span style="font-weight: bold; font-size: 15px">Make Payments</span>
+          <div class="grid">
+            <!-- Airtime -->
+            <a href="./airtime.html" class="payment-item">
+              <div
+                class="icon-div"
+                style="background: rgba(26, 102, 201, 0.12)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="15px"
+                  height="15px"
+                  fill="rgb(26, 102, 201)"
+                >
+                  <path
+                    d="M21 16.42V19.9561C21 20.4811 20.5941 20.9167 20.0705 20.9537C19.6331 20.9846 19.2763 21 19 21C10.1634 21 3 13.8366 3 5C3 4.72371 3.01545 4.36687 3.04635 3.9295C3.08337 3.40588 3.51894 3 4.04386 3H7.5801C7.83678 3 8.05176 3.19442 8.07753 3.4498C8.10067 3.67907 8.12218 3.86314 8.14207 4.00202C8.34435 5.41472 8.75753 6.75936 9.3487 8.00303C9.44359 8.20265 9.38171 8.44159 9.20185 8.57006L7.04355 10.1118C8.35752 13.1811 10.8189 15.6425 13.8882 16.9565L15.4271 14.8019C15.5572 14.6199 15.799 14.5573 16.001 14.6532C17.2446 15.2439 18.5891 15.6566 20.0016 15.8584C20.1396 15.8782 20.3225 15.8995 20.5502 15.9225C20.8056 15.9483 21 16.1633 21 16.42Z"
+                    stroke="rgb(26, 102, 201)"
+                    stroke-width="1"
+                  />
+                </svg>
+              </div>
+              <h3 class="title">Buy airtime</h3>
+              <p class="subtitle">
+                Top up & share airtime with friends and family
+              </p>
+            </a>
+
+            <!-- Data -->
+            <div class="payment-item">
+              <div class="icon-div" style="background: rgba(238, 220, 57, 0.2)">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="21px"
+                  viewBox="0 -960 960 960"
+                  width="22px"
+                  fill="rgba(233, 215, 50, 2)"
+                  stroke="rgba(233, 215, 50, 2)"
+                  stroke-width="30"
+                >
+                  <path
+                    d="M200-40v-130q54.33 0 92.17 37.83Q330-94.33 330-40H200Zm196.67 0q0-82-57.34-139.33Q282-236.67 200-236.67v-66.66q109.72 0 186.53 76.8 76.8 76.81 76.8 186.53h-66.66ZM530-40q0-138-95.91-234-95.9-96-234.09-96v-66.67q82.33 0 154.72 31.24t125.93 84.79q53.55 53.55 84.78 125.94 31.24 72.39 31.24 154.7H530Zm229.33-813.33V-712q17.34 4.33 29 18.64Q800-679.06 800-660.95v76.28q0 19-11.67 33.34-11.66 14.33-29 18.66v426q0 27.5-19.58 47.09Q720.17-40 692.67-40v-813.33h-426v350H200v-350q0-27 19.83-46.84Q239.67-920 266.67-920h426q27 0 46.83 19.83 19.83 19.84 19.83 46.84ZM479.33-720q13.67 0 23.5-9.83 9.84-9.84 9.84-23.5 0-13.67-9.84-23.5-9.83-9.84-23.5-9.84-13.66 0-23.5 9.84Q446-767 446-753.33q0 13.66 9.83 23.5 9.84 9.83 23.5 9.83ZM692.67-40v-813.33V-40Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="title">Data bundle</h3>
+              <p class="subtitle">Top up & share data with friens and family</p>
+            </div>
+
+            <!--Electricity-->
+            <div class="payment-item">
+              <div
+                class="icon-div"
+                style="background: rgba(226, 143, 66, 0.14)"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  id="Station--Streamline-Solar"
+                  height="21"
+                  width="21"
+                >
+                  <desc>Station Streamline Icon: https://streamlinehq.com</desc>
+                  <path
+                    d="M5.46583 2.53086c0.29319 -0.2926 0.29366 -0.76748 0.00106 -1.06066 -0.2926 -0.29319 -0.76748 -0.29366 -1.06066 -0.00106C2.45721 3.41428 1.25 6.10595 1.25 9.07816c0 3.00704 1.23564 5.72684 3.22497 7.67704 0.29579 0.2899 0.77064 0.2852 1.0606 -0.0106 0.28997 -0.2958 0.28525 -0.7706 -0.01054 -1.0606C3.81163 14.0043 2.75 11.6659 2.75 9.07816c0 -2.55786 1.03722 -4.87204 2.71583 -6.5473Z"
+                    fill="rgb(226, 143, 66)"
+                    stroke-width="1"
+                  />
+                  <path
+                    d="M19.677 1.55312c-0.29 -0.29579 -0.7648 -0.3005 -1.0606 -0.01054 -0.2958 0.28997 -0.3005 0.76482 -0.0105 1.06061C20.2422 4.27243 21.25 6.55686 21.25 9.07816c0 2.55114 -1.0318 4.85994 -2.7027 6.53414 -0.2926 0.2932 -0.2921 0.7681 0.0011 1.0607 0.2931 0.2926 0.768 0.2921 1.0606 -0.0011 1.9401 -1.9439 3.141 -4.6293 3.141 -7.59374 0 -2.92961 -1.1729 -5.58677 -3.073 -7.52504Z"
+                    fill="rgb(226, 143, 66)"
+                    stroke-width="1"
+                  />
+                  <path
+                    d="M8.27408 5.62574c0.30244 -0.28302 0.31818 -0.75764 0.03515 -1.06008 -0.28302 -0.30244 -0.75763 -0.31818 -1.06007 -0.03515C6.02148 5.67937 5.25 7.28109 5.25 9.06033c0 1.80017 0.78967 3.41837 2.04244 4.56997 0.30495 0.2803 0.77941 0.2603 1.05972 -0.0446 0.28032 -0.305 0.26035 -0.7794 -0.0446 -1.0597C7.33869 11.6354 6.75 10.4078 6.75 9.06033c0 -1.332 0.57517 -2.5466 1.52408 -3.43459Z"
+                    fill="rgb(226, 143, 66)"
+                    stroke-width="1"
+                  />
+                  <path
+                    d="M16.8033 4.58011c-0.2994 -0.28631 -0.7741 -0.27576 -1.0604 0.02358 -0.2863 0.29933 -0.2758 0.77408 0.0235 1.06039 0.9247 0.88447 1.4836 2.08319 1.4836 3.39625 0 1.32857 -0.5722 2.54027 -1.5167 3.42757 -0.3018 0.2837 -0.3166 0.7583 -0.033 1.0602 0.2836 0.3019 0.7583 0.3167 1.0601 0.033 1.2221 -1.1482 1.9896 -2.7462 1.9896 -4.52077 0 -1.75365 -0.7495 -3.33509 -1.9467 -4.48022Z"
+                    fill="rgb(226, 143, 66)"
+                    stroke-width="1"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.8326 10.6241C10.3283 10.261 10 9.66883 10 9c0 -1.10457 0.8954 -2 2 -2s2 0.89543 2 2c0 0.66883 -0.3283 1.261 -0.8326 1.6241l3.5473 11.1485c0.1084 0.3408 -0.0388 0.7107 -0.3517 0.8837 -0.313 0.1731 -0.7046 0.1011 -0.9355 -0.1718L12 18.4338l-3.42746 4.0507c-0.23098 0.2729 -0.62257 0.3449 -0.9355 0.1718 -0.31293 -0.173 -0.46016 -0.5429 -0.35173 -0.8837l3.54729 -11.1485Zm2.1499 6.6486 1.1641 1.3758 -0.6363 -1.9996 -0.5278 0.6238Zm-0.008 -2.3079c-0.0163 0.0161 -0.032 0.033 -0.047 0.0507L12 16.1116l-0.9275 -1.0961c-0.015 -0.0177 -0.0307 -0.0346 -0.047 -0.0507L12 11.9022l0.9745 3.0626Zm-2.4848 1.6841 0.5278 0.6238 -1.16405 1.3758 0.63625 -1.9996Z"
+                    fill="rgb(226, 143, 66)"
+                    stroke-width="1"
+                  />
+                </svg>
+              </div>
+              <h3 class="title">Electricity Bill</h3>
+              <p class="subtitle">
+                Never run out of power, with Cheepay utility
+              </p>
+            </div>
+
+            <!-- Tv Subscription -->
+            <div class="payment-item">
+              <div
+                class="icon-div"
+                style="background: rgba(119, 221, 106, 0.14)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="22px"
+                  height="22px"
+                  fill="rgb(119, 221, 106)"
+                >
+                  <path
+                    d="M8.16,3L6.75,4.41L9.34,7H4C2.89,7 2,7.89 2,9V19C2,20.11 2.89,21 4,21H20C21.11,21 22,20.11 22,19V9C22,7.89 21.11,7 20,7H14.66L17.25,4.41L15.84,3L12,6.84L8.16,3M4,9H17V19H4V9M19.5,9A1,1 0 0,1 20.5,10A1,1 0 0,1 19.5,11A1,1 0 0,1 18.5,10A1,1 0 0,1 19.5,9M19.5,12A1,1 0 0,1 20.5,13A1,1 0 0,1 19.5,14A1,1 0 0,1 18.5,13A1,1 0 0,1 19.5,12Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="title">TV Subscription</h3>
+              <p class="subtitle">Stay up-to date with latest shows and more</p>
+            </div>
+
+            <!--Gift Card-->
+            <div class="payment-item">
+              <div
+                class="icon-div"
+                style="background: rgba(127, 93, 252, 0.14)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="21px"
+                  height="21px"
+                  fill="rgb(127, 93, 252)"
+                >
+                  <path
+                    d="M22 10.87L19.26 9.28C19.5 9.07 19.73 8.8 19.9 8.5C20.73 7.07 20.24 5.23 18.8 4.4C17.94 3.9 16.93 3.9 16.08 4.26L16.09 4.25L15.21 4.64L15.1 3.68L15.09 3.69C15 2.78 14.47 1.9 13.61 1.4C12.17 .575 10.34 1.07 9.5 2.5C9.33 2.8 9.22 3.13 9.16 3.45L6.41 1.87C5.45 1.32 4.23 1.64 3.68 2.6L2.18 5.2C1.9 5.68 2.07 6.29 2.55 6.56L4.28 7.56L8.5 10H2V20C2 21.11 2.9 22 4 22H20C21.11 22 22 21.11 22 20V14.87L22.73 13.6C23.28 12.64 22.96 11.42 22 10.87M16.44 6.5C16.71 6 17.33 5.86 17.8 6.13C18.28 6.41 18.45 7 18.17 7.5C17.89 8 17.28 8.14 16.8 7.87C16.33 7.59 16.16 7 16.44 6.5M14.07 8.6L21 12.6L20 14.33L13.07 10.33L14.07 8.6M11 20H4V12H11V20M11.34 9.33L4.41 5.33L5.41 3.6L12.34 7.6L11.34 9.33M11.61 4.87C11.13 4.59 10.97 4 11.24 3.5C11.5 3 12.13 2.86 12.61 3.13C13.09 3.41 13.25 4 12.97 4.5C12.7 5 12.09 5.14 11.61 4.87M13 20V12.6L20 16.64V20H13Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="title">Sell Gift Cards</h3>
+              <p class="subtitle">
+                Trade your gift card at a slightly cool rate
+              </p>
+            </div>
+
+            <!-- Social Ads -->
+            <div class="payment-item">
+              <div
+                class="icon-div"
+                style="background: rgba(253, 96, 245, 0.17)"
+              >
+                <div
+                  class="circle"
+                  style="
+                    border: 2px solid rgb(248, 93, 242);
+                    border-radius: 50%;
+                    padding: 1.5px;
+                  "
+                >
+                  <svg
+                    width="13px"
+                    height="13px"
+                    viewBox="0 0 24 24"
+                    fill="rgb(248, 93, 242)"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g id="Interface / Heart_01">
+                      <path
+                        id="Vector"
+                        d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z"
+                        stroke="none"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="title">Social Ads</h3>
+              <p class="subtitle">Organic likes, followers, comments, shares</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navBar">
+      <div class="navBar-container">
+        <!--Home-->
+        <div class="icon-container" id="home">
+          <div class="home-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              viewBox="0 0 24 24"
+              fill="rgb(26, 102, 201)"
+            >
+              <path
+                d="M20 20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20ZM8 13.5V15.5H16V13.5H8Z"
+              />
+            </svg>
+          </div>
+          <span>Home</span>
+        </div>
+
+        <!--Market place-->
+        <a href="./marketplace.html" class="icon-container" id="marketplace">
+          <div class="marketplace-icon">
+            <svg
+              fill="#777777"
+              width="22px"
+              height="20px"
+              viewBox="0 0 32 32"
+              id="icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: none;
+                  }
+                </style>
+              </defs>
+              <title>shopping--cart</title>
+              <circle cx="10" cy="28" r="2" />
+              <circle cx="24" cy="28" r="2" />
+              <path
+                d="M28,7H5.82L5,2.8A1,1,0,0,0,4,2H0V4H3.18L7,23.2A1,1,0,0,0,8,24H26V22H8.82L8,18H26a1,1,0,0,0,1-.78l2-9A1,1,0,0,0,28,7Zm-2.8,9H7.62L6.22,9H26.75Z"
+              />
+              <rect
+                id="_Transparent_Rectangle_"
+                data-name="&lt;Transparent Rectangle&gt;"
+                class="cls-1"
+                width="32"
+                height="32"
+              />
+            </svg>
+          </div>
+          <span>Marketplace</span>
+        </a>
+
+        <!--History-->
+        <a href="./history.html" class="icon-container" id="history">
+          <div class="history-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#888888"
+              width="23px"
+              height="23px"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"
+              />
+            </svg>
+          </div>
+          <span>History</span>
+        </a>
+
+        <!--Account-->
+        <a href="#" class="icon-container" id="account">
+          <div class="account-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="23px"
+              height="23px"
+              fill="#888888"
+            >
+              <path
+                d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2ZM12.1597 16C10.1243 16 8.29182 16.8687 7.01276 18.2556C8.38039 19.3474 10.114 20 12 20C13.9695 20 15.7727 19.2883 17.1666 18.1081C15.8956 16.8074 14.1219 16 12.1597 16ZM12 4C7.58172 4 4 7.58172 4 12C4 13.8106 4.6015 15.4807 5.61557 16.8214C7.25639 15.0841 9.58144 14 12.1597 14C14.6441 14 16.8933 15.0066 18.5218 16.6342C19.4526 15.3267 20 13.7273 20 12C20 7.58172 16.4183 4 12 4ZM12 5C14.2091 5 16 6.79086 16 9C16 11.2091 14.2091 13 12 13C9.79086 13 8 11.2091 8 9C8 6.79086 9.79086 5 12 5ZM12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7Z"
+              />
+            </svg>
+          </div>
+          <span>Account</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>

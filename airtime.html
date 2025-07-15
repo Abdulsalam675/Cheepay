@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 400px;
+        z-index: 999;
+        background-color: rgb(254, 254, 254);
+      }
+
+      .title-container {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 3px;
+      }
+
+      .back-icon {
+        font-size: 1rem;
+        cursor: pointer;
+        color: #000;
+        cursor: pointer;
+        outline: none;
+        margin-left: 7px;
+      }
+
+      .title-container h2 {
+        font-size: 0.9rem;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(247, 247, 247);
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+      }
+
+      form {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+    
+          .swiper {
+        width: 90%;
+        height: 90px;
+        margin: 12px auto 25px auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: content;
+      }
+
+      .swiper-pagination-bullet-active {
+        width: 12px;
+        opacity: 1;
+        border-radius: 10px;
+        background: rgb(26, 102, 201);
+        transition: 0.2s ease;
+      }
+          .phone-number-container {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        padding-right: 20px;
+        border-radius: 10px;
+        color: #111;
+        background-color: rgb(254, 254, 254);
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      .input-div,
+      .network-wrapper {
+        display: flex;
+        align-items: center;
+        font-family: "Lato", sans-serif;
+        cursor: pointer;
+      }
+
+      .network-logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+      }
+
+      .input-div input {
+        width: 68%;
+        font-size: 15px;
+        padding: 0 7px;
+        color: #111;
+        border: 1px solid transparent;
+        border-left-color: #eee;
+        outline: none;
+      }
+
+      .phone-number-container span {
+        font-size: 11px;
+      }
+    
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 13px;
+        padding: 12px;
+        color: #111;
+      }
+
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .toggle input {
+        display: none;
+      }
+
+      .slider {
+        width: 35px;
+        height: 14px;
+        background-color: #999999;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .circle {
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: rgb(26, 102, 201);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        transform: translateX(0);
+      }
+
+      .toggle input:checked + .slider {
+        background: rgb(173, 216, 230);
+      }
+
+      .toggle input:checked + .slider .circle {
+        transform: translateX(80%);
+      }
+
+      .select-beneficiary {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        padding-right: 30px;
+        border-radius: 10px;
+        background-color: rgb(254, 254, 254);
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      .select-beneficiary select {
+        width: 100%;
+        padding: 1.1rem 0;
+        margin-left: 12px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        background: transparent;
+       
+      }
+
+      .payment-container {
+        background-color: rgb(254, 254, 254);
+        padding: 20px 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+        position: relative;
+      }
+
+      .payment-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 12px;
+        row-gap: 23px;
+        margin-bottom: 20px;
+      }
+
+      .option {
+        background-color: rgb(244, 244, 244);
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        color: #222;
+        flex-direction: column;
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      .option .title {
+        font-size: 15px;
+        font-weight: bold;
+      }
+    
+      .option .title span {
+        font-weight: normal;
+      }
+
+      .option .subtitle {
+        font-size: 10px;
+      }
+
+      .option:hover {
+        background-color: rgb(242, 242, 242);
+        transition: 0.3s ease;
+      }
+
+      .custom-amount {
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .amount {
+        width: 70%;
+        font-size: 15px;
+        border: 1px solid transparent;
+        outline: none;
+        padding: 0 10px;
+        border-bottom-color: #eee;
+        position: absolute;
+        top: 0;
+        left: 20px;
+      }
+
+      .buy-btn {
+        background: rgb(26, 102, 201);
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 7px 22px;
+        border-radius: 20px;
+        font-family: "Lato", sans-serif;
+        position: absolute;
+        right: 0;
+      }
+    </style>
+    <title>Buy Airtime</title>
+  </head>
+  <body>
+    <header>
+      <div class="title-container">
+        <span class="material-symbols-outlined back-icon" tabindex="0"
+          >arrow_back_ios</span
+        >
+        <h2>Buy Airtime</h2>
+      </div>
+    </header>
+
+    <div class="container">
+      <form action="#">
+        <!-- Image slider -->
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./Image/onboarding10.jpeg" alt="Image 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./Image/onboarding5.png" alt="Imge 2" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="phone-number-container">
+          <div class="input-div">
+            <div class="network-wrapper">
+              <img class="network-logo" src="./Image/glo-icon.png" alt="glo" />
+              <span
+                class="material-symbols-outlined"
+                style="font-size: 20px; color: #666666; font-weight: bold"
+              >
+                arrow_drop_down</span
+              >
+            </div>
+            <input
+              type="tel"
+              id="phone-number"
+              maxlength="11"
+              minlength="11"
+              placeholder="080 xxx xxx xx"
+            />
+            <div class="phone-book-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6,17C6,15 10,13.9 12,13.9C14,13.9 18,15 18,17V18H6M15,9A3,3 0 0,1 12,12A3,3 0 0,1 9,9A3,3 0 0,1 12,6A3,3 0 0,1 15,9M3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3H5C3.89,3 3,3.9 3,5Z"
+                  fill="#888888"
+                />
+              </svg>
+            </div>
+          </div>
+          <span>Enter phone number or simply select from your contacts</span>
+        </div>
+
+        <!-- Toggel Swicth -->
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="saveBeneficiary" />
+            <div class="slider">
+              <div class="circle"></div>
+            </div>
+          </label>
+          <label>Save as beneficiary</label>
+        </div>
+
+        <div class="select-beneficiary">
+          <select name="beneficiary" id="beneficiary">
+            <option value="" selected hidden disabled>
+              Select Beneficiary
+            </option>
+          </select>
+        </div>
+
+        <div class="payment-container">
+          <div class="payment-options">
+            <button type="button" class="option">
+              <span class="title"><span>₦ </span>100</span>
+              <span class="subtitle">pay ₦ 100</span>
+            </button>
+            <button type="button" class="option">
+              <span class="title"><span>₦ </span>500</span>
+              <span class="subtitle">pay ₦ 500</span>
+            </button>
+            <button type="button" class="option">
+              <span class="title"><span>₦ </span>1,500</span>
+              <span class="subtitle">pay ₦ 1,500 </span>
+            </button>
+            <button type="button" class="option">
+              <span class="title"><span>₦ </span>2,000</span>
+              <span class="subtitle">pay ₦ 2,000</span>
+            </button>
+            <button type="button" class="option">
+              <span class="title"><span>₦ </span>2,500</span>
+              <span class="subtitle">pay ₦ 2,500</span>
+            </button>
+            <button type="button" class="option">
+              <span class="title"><span>₦ </span>3,000</span>
+              <span class="subtitle">pay ₦ 3,000</span>
+            </button>
+          </div>
+
+          <div class="custom-amount">
+            <span>
+              <svg
+                fill="#000000"
+                width="18px"
+                height="18px"
+                viewBox="0 0 24 24"
+                id="naira"
+                data-name="Flat Color"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon flat-color"
+              >
+                <path
+                  id="primary"
+                  d="M20,13H18V11h2a1,1,0,0,0,0-2H18V3a1,1,0,0,0-2,0V9H11.48L7.87,2.51A1,1,0,0,0,6,3V9H4a1,1,0,0,0,0,2H6v2H4a1,1,0,0,0,0,2H6v6a1,1,0,0,0,2,0V15h4.52l3.61,6.49A1,1,0,0,0,17,22a1.07,1.07,0,0,0,.25,0A1,1,0,0,0,18,21V15h2a1,1,0,0,0,0-2Zm-4-2v2H13.7l-1.11-2ZM8,6.86,9.19,9H8ZM8,13V11h2.3l1.11,2Zm8,4.14L14.81,15H16Z"
+                  style="fill: #111"
+                ></path>
+              </svg>
+            </span>
+            <input
+              type="tel"
+              maxlength="11"
+              placeholder="50-500,000"
+              class="amount"
+              id="amount"
+            />
+            <button type="submit" class="buy-btn">Buy</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Back Icon
+      document.querySelector(".back-icon").addEventListener("click", () => {
+        history.back();
+      });
+
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      // Formats 'amount' input wiith thousand separators
+      const input = document.getElementById("amount");
+
+      input.addEventListener("input", function () {
+        let value = input.value;
+        value = value.replace(/[^0-9]/g, "");
+
+        const Formatted = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        input.value = Formatted;
+      });
+
+      // Add click event to price buttons
+      document.querySelectorAll(".option").forEach((button) => {
+        button.addEventListener("click", function () {
+          const priceText = this.querySelector(".title").textContent;
+          const priceValue = priceText.replace("₦ ", "").replace(/,/g, "");
+          input.value = Number(priceValue).toLocaleString();
+        });
+      });
+    </script>
+  </body>
+</html>

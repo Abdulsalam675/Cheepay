@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+        background-color: #fff;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 450px;
+        z-index: 999;
+        background-color: rgb(255, 255, 255);
+        display: column;
+      }
+
+      header .title {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0 15px 0;
+        font-size: 15px;
+      }
+
+      header .drop_down {
+        width: 83%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3.2rem;
+        row-gap: 8px;
+        padding-bottom: 1.3rem;
+      }
+
+      header button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.2rem;
+        font-size: 13px;
+        color: #444;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        background: rgb(249, 250, 250);
+        box-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.1),
+          -0.3px -0.3px 0 rgba(0, 0, 0, 0.1);
+        font-family: "Lato", sans-serif;
+        user-select: none;
+        outline: none;
+        cursor: pointer;
+      }
+
+      header button:hover {
+        opacity: 0.2;
+        transition: 0.04s ease;
+      }
+
+      header button:nth-child(3) {
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .container-1 {
+        width: 100%;
+        max-width: 400px;
+        height: 100vh;
+        padding-top: 8rem;
+        box-sizing: border-box;
+        overflow: none;
+        margin: 0 auto;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(250, 250, 250);
+      }
+
+      .container-2 {
+        width: 95%;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .img-container {
+        width: 100%;
+        margin: 0 auto;
+        height: 16rem;
+        font-size: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .img-container img {
+        width: 55%;
+        height: 73%;
+      }
+
+      .navBar {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 380px;
+        z-index: 999;
+        background-color: #fff;
+      }
+
+      .navBar-container {
+        display: flex;
+        width: 100%;
+        padding: 0px 0;
+        margin: 0 auto;
+      }
+
+      .icon-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: auto;
+        width: 100%;
+        font-size: 12px;
+        height: 38px;
+        color: #888888;
+        text-decoration: none;
+        padding: 9px 0;
+        user-select: none;
+        cursor: pointer;
+      }
+
+      #home {
+        width: 70%;
+      }
+
+      #history {
+        width: 85%;
+        color: rgb(26, 102, 201);
+      }
+
+      .icon-container:hover {
+        background: rgba(0, 0, 0, 0.01);
+      }
+    </style>
+    <title>History</title>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <span>History</span>
+        <span
+          ><a href="#" style="text-decoration: none; color: rgb(26, 102, 201)"
+            >Download</a
+          ></span
+        >
+      </div>
+
+      <div class="drop_down">
+        <button>
+          All Categories
+          <span
+            class="material-symbols-outlined"
+            style="font-size: 24px; color: #666666; font-weight: bold"
+          >
+            arrow_drop_down</span
+          >
+        </button>
+        <button>
+          All Status
+          <span
+            class="material-symbols-outlined"
+            style="font-size: 24px; color: #666666; font-weight: bold"
+          >
+            arrow_drop_down</span
+          >
+        </button>
+        <button style="font-size: 16px; font-weight: bold">
+          July 2025
+          <span
+            class="material-symbols-outlined"
+            style="font-size: 26px; color: #666666; font-weight: bold"
+          >
+            arrow_drop_down</span
+          >
+        </button>
+        <button>Monthly Statistics</button>
+      </div>
+    </header>
+
+    <div class="container-1">
+      <div class="container-2">
+        <div class="img-container">
+          <img src="./Image/no-ads.png" alt="No Activities" />
+          <span>No Activities Yet!</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navBar">
+      <div class="navBar-container">
+        <!--Home-->
+        <a href="./home.html" class="icon-container" id="home">
+          <div class="home-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#999999"
+              stroke-width="2"
+            >
+              <path
+                d="M20 20C20 20.5523 19.5523 21 19 21H5C4.44772 21 4 20.5523 4 20V11L1 11L11.3273 1.6115C11.7087 1.26475 12.2913 1.26475 12.6727 1.6115L23 11L20 11V20ZM8 13.5V15.5H16V13.5H8Z"
+              />
+            </svg>
+          </div>
+          <span>Home</span>
+        </a>
+
+        <!--Market place-->
+        <a href="./marketplace.html" class="icon-container" id="marketplace">
+          <div class="marketplace-icon">
+            <svg
+              fill="#777777"
+              width="22px"
+              height="20px"
+              viewBox="0 0 32 32"
+              id="icon"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: none;
+                  }
+                </style>
+              </defs>
+              <title>shopping--cart</title>
+              <circle cx="10" cy="28" r="2" />
+              <circle cx="24" cy="28" r="2" />
+              <path
+                d="M28,7H5.82L5,2.8A1,1,0,0,0,4,2H0V4H3.18L7,23.2A1,1,0,0,0,8,24H26V22H8.82L8,18H26a1,1,0,0,0,1-.78l2-9A1,1,0,0,0,28,7Zm-2.8,9H7.62L6.22,9H26.75Z"
+              />
+              <rect
+                id="_Transparent_Rectangle_"
+                data-name="&lt;Transparent Rectangle&gt;"
+                class="cls-1"
+                width="32"
+                height="32"
+              />
+            </svg>
+          </div>
+          <span>Marketplace</span>
+        </a>
+
+        <!--History-->
+        <div class="icon-container" id="history">
+          <div class="history-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="rgb(26, 102, 201)"
+              width="23px"
+              height="23px"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"
+              />
+            </svg>
+          </div>
+          <span>History</span>
+        </div>
+
+        <!--Account-->
+        <a href="#" class="icon-container" id="account">
+          <div class="account-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="23px"
+              height="23px"
+              fill="#999999"
+            >
+              <path
+                d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2ZM12.1597 16C10.1243 16 8.29182 16.8687 7.01276 18.2556C8.38039 19.3474 10.114 20 12 20C13.9695 20 15.7727 19.2883 17.1666 18.1081C15.8956 16.8074 14.1219 16 12.1597 16ZM12 4C7.58172 4 4 7.58172 4 12C4 13.8106 4.6015 15.4807 5.61557 16.8214C7.25639 15.0841 9.58144 14 12.1597 14C14.6441 14 16.8933 15.0066 18.5218 16.6342C19.4526 15.3267 20 13.7273 20 12C20 7.58172 16.4183 4 12 4ZM12 5C14.2091 5 16 6.79086 16 9C16 11.2091 14.2091 13 12 13C9.79086 13 8 11.2091 8 9C8 6.79086 9.79086 5 12 5ZM12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7Z"
+              />
+            </svg>
+          </div>
+          <span>Account</span>
+        </a>
+      </div>
+    </nav>
+  </body>
+</html>

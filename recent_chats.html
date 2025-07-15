@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      .header-container {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 400px;
+        z-index: 999;
+        border-bottom: 1px solid #ddd;
+        background-color: rgb(255, 255, 255);
+      }
+
+      .header {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 auto;
+        gap: 10px;
+        padding: 0.2rem 0;
+      }
+
+      .back-icon {
+        cursor: pointer;
+        color: #000;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 7px;
+      }
+
+      h2 {
+        font-size: 14px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-top: 3.3rem;
+        box-sizing: border-box;
+        overflow: none;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(255, 255, 255);
+      }
+    </style>
+    <title>Recent chats</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="header">
+        <span class="material-symbols-outlined back-icon" tabindex="0"
+          >arrow_back_ios</span
+        >
+        <h2>Recent chats</h2>
+      </div>
+    </header>
+
+    <div class="container"></div>
+    
+    <script>
+          // Back Icon
+      document.querySelector(".back-icon").addEventListener("click", () => {
+        history.back();
+      });
+
+    </script>
+  </body>
+</html>
