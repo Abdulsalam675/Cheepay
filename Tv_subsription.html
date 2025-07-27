@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 400px;
+        z-index: 999;
+        background-color: rgb(254, 254, 254);
+      }
+
+      .title-container {
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 3px;
+      }
+
+      .back-icon {
+        font-size: 1rem;
+        cursor: pointer;
+        color: #000;
+        cursor: pointer;
+        outline: none;
+        margin-left: 7px;
+      }
+
+      .title-container h2 {
+        font-size: 0.9rem;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(247, 247, 247);
+      }
+
+      form {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 45px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .swiper {
+        width: 92%;
+        height: 90px;
+        margin: 20px auto 12px auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: content;
+      }
+
+      .swiper-pagination-bullet-active {
+        width: 12px;
+        opacity: 1;
+        border-radius: 10px;
+        background: rgb(26, 102, 201);
+        transition: 0.2s ease;
+      }
+
+      .phone-number-container {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        border-radius: 10px;
+        color: #111;
+        background-color: rgb(254, 254, 254);
+        box-shadow: 1px 0.3px 3px rgba(0, 0, 0, 0.01);
+      }
+
+      .input-div,
+      .network-wrapper {
+        display: flex;
+        align-items: center;
+        font-family: "Lato", sans-serif;
+        cursor: pointer;
+      }
+
+      .network-logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+      }
+
+      .input-div input {
+        width: 68%;
+        font-size: 15px;
+        padding: 0 7px;
+        color: #111;
+        border: 1px solid transparent;
+        border-left-color: #eee;
+        outline: none;
+      }
+
+      .phone-number-container span {
+        font-size: 11px;
+      }
+
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 13px;
+        padding: 12px;
+        color: #111;
+      }
+
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .toggle input {
+        display: none;
+      }
+
+      .slider {
+        width: 35px;
+        height: 14px;
+        background-color: #999999;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .circle {
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: rgb(26, 102, 201);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        transform: translateX(0);
+      }
+
+      .toggle input:checked + .slider {
+        background: rgb(173, 216, 230);
+      }
+
+      .toggle input:checked + .slider .circle {
+        transform: translateX(80%);
+      }
+
+      .select-beneficiary {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        padding-right: 30px;
+        border-radius: 10px;
+        background-color: rgb(254, 254, 254);
+        box-shadow: 1px 0.3px 3px rgba(0, 0, 0, 0.01);
+      }
+
+      .select-beneficiary select {
+        width: 100%;
+        padding: 1.1rem 0;
+        margin-left: 12px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        background: transparent;
+      }
+
+      .payment-container {
+        background-color: rgb(254, 254, 254);
+        padding: 15px 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        box-shadow: 1px 0.3px 15px rgba(0, 0, 0, 0.01);
+        position: relative;
+      }
+
+      .payment-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 11px;
+        row-gap: 10px;
+      }
+
+      .option {
+        background: linear-gradient(
+          to bottom,
+          rgb(249, 249, 249),
+          rgba(28, 105, 210, 0.09)
+        );
+        border: none;
+        height: 120px;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        color: #111;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      .option .title {
+        font-size: 9px;
+        font-weight: 500;
+        display: flex;
+        padding: 0 4px;
+        margin-bottom: 10px;
+      }
+
+      .option .title span {
+        font-weight: normal;
+      }
+
+      .option .subtitle {
+        width: 100%;
+        font-size: 11px;
+        font-weight: normal;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .option:hover {
+        opacity: 0.3;
+        transition: 0.3s ease-out;
+      }
+    </style>
+    <title>Cable</title>
+  </head>
+  <body>
+    <header>
+      <div class="title-container">
+        <span class="material-symbols-outlined back-icon" tabindex="0"
+          >arrow_back_ios</span
+        >
+        <h2>Cable Tv</h2>
+      </div>
+    </header>
+
+    <div class="container">
+      <form action="#">
+        <!-- Image slider -->
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./Image/onboarding10.jpeg" alt="Image 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./Image/onboarding5.png" alt="Imge 2" />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="phone-number-container">
+          <div class="input-div">
+            <div class="network-wrapper">
+              <img class="network-logo" src="./Image/dstv.png" alt="Dstv" />
+              <span
+                class="material-symbols-outlined"
+                style="font-size: 20px; color: #666666; font-weight: bold"
+              >
+                arrow_drop_down</span
+              >
+            </div>
+            <input
+              type="tel"
+              id="phone-number"
+              maxlength="11"
+              minlength="11"
+              placeholder="080 xxx xxx xx"
+            />
+          </div>
+          <span>Enter IUC or Smart Card number for verification</span>
+        </div>
+
+        <!-- Toggel Swicth -->
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="saveBeneficiary" />
+            <div class="slider">
+              <div class="circle"></div>
+            </div>
+          </label>
+          <label>Save as beneficiary</label>
+        </div>
+
+        <div class="select-beneficiary">
+          <select name="beneficiary" id="beneficiary">
+            <option value="" selected hidden disabled>
+              Select Beneficiary
+            </option>
+          </select>
+        </div>
+
+        <div class="payment-container">
+          <div class="payment-options">
+            <button type="button" class="option">
+              <span class="title">DStv Paid N4,400🔥</span>
+              <span class="subtitle">Pay ₦ 4,400</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Yanga N6,000🔥</span>
+              <span class="subtitle">Pay ₦ 4,400</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Confam N11,000🔥</span>
+              <span class="subtitle">Pay ₦ 4,400</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact N19,000🔥</span>
+              <span class="subtitle">Pay ₦ 4,400</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Premium N44,500🔥</span>
+              <span class="subtitle">Pay ₦ 4,400</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact Plus N30,000🔥</span>
+              <span class="subtitle">Pay ₦ 30,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Premium-French N69,000🔥</span>
+              <span class="subtitle">Pay ₦ 69,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Premium-Asia N50,500🔥</span>
+              <span class="subtitle">Pay ₦ 50,500</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Confam +ExtraView N17,000🔥</span>
+              <span class="subtitle">Pay ₦ 17,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Yanga +ExtraView N12,000🔥</span>
+              <span class="subtitle">Pay ₦ 12,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Padi + ExtraView N10,400🔥</span>
+              <span class="subtitle">Pay ₦ 10,400</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact +ExtraView N25,000🔥</span>
+              <span class="subtitle">Pay ₦ 25,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact + French Touch N26,000🔥</span>
+              <span class="subtitle">Pay ₦ 26,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Premium + ExtraView 50,500🔥</span>
+              <span class="subtitle">Pay ₦ 50,500</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title"
+                >DStv Compact + French Touch + ExtraView N32,000🔥</span
+              >
+              <span class="subtitle">Pay ₦ 32,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact Plus + French Plus N54,500🔥</span>
+              <span class="subtitle">Pay ₦ 54,500</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title"
+                >DStv Compact Plus + French Touch N37,000🔥</span
+              >
+              <span class="subtitle">Pay ₦ 37,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact Plus + ExtraView N36,000🔥</span>
+              <span class="subtitle">Pay ₦ 36,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title"
+                >DStv Compact Plus + FrenchPlus + ExtraView N60,500🔥</span
+              >
+              <span class="subtitle">Pay ₦ 60,500</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv Compact + French Plus N43,500🔥</span>
+              <span class="subtitle">Pay ₦ 43,500</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title"
+                >DStv Premium + French + Extra View N75,000🔥</span
+              >
+              <span class="subtitle">Pay ₦ 75,000</span>
+            </button>
+
+            <button type="button" class="option">
+              <span class="title">DStv French Plus Add-on N24,500🔥</span>
+              <span class="subtitle">Pay ₦ 24,500</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Back Icon
+      document.querySelector(".back-icon").addEventListener("click", () => {
+        history.back();
+      });
+
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+      // Formats 'amount' input wiith thousand separators
+      const input = document.getElementById("amount");
+
+      input.addEventListener("input", function () {
+        let value = input.value;
+        value = value.replace(/[^0-9]/g, "");
+
+        const Formatted = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        input.value = Formatted;
+      });
+
+      // Add click event to price buttons
+      document.querySelectorAll(".option").forEach((button) => {
+        button.addEventListener("click", function () {
+          const priceText = this.querySelector(".title").textContent;
+          const priceValue = priceText.replace("₦ ", "").replace(/,/g, "");
+          input.value = Number(priceValue).toLocaleString();
+        });
+      });
+    </script>
+  </body>
+</html>

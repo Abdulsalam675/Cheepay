@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lato", sans-serif;
+        background-color: #fff;
+      }
+
+      .container {
+        background-color: rgb(248, 248, 248);
+        width: 100%;
+        max-width: 400px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-color: #fff;
+      }
+
+      .title-wrapper {
+        width: 95%;
+        padding: 3px 0;
+        margin: 0 auto;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .back-icon {
+        font-size: 1rem;
+        cursor: pointer;
+        color: #000;
+        cursor: pointer;
+        margin-left: 7px;
+      }
+
+      .title {
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      form {
+        width: 90%;
+        margin: 10px auto;
+        padding: 20px 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(254, 254, 254);
+      }
+
+      .btn-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 7px;
+      }
+
+      .btn-wrapper button {
+        flex: 1;
+        margin: 0 7px;
+        font-size: 15px;
+        padding: 10px 0;
+        border-radius: 10px;
+        background-color: transparent;
+        color: rgb(26, 102, 201);
+        border: 1px solid transparent;
+        cursor: pointer;
+      }
+
+      .btn-wrapper button.show {
+         border: 1px solid rgb(26, 102, 201);
+         transition: 0.3s ease-out;
+      }
+
+      .toggle-wrapper {
+        display: flex;
+        gap: 15px;
+        font-size: 13px;
+        padding: 10px 0 10px 0;
+        color: #111;
+      }
+
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .toggle input {
+        display: none;
+      }
+
+      .slider {
+        width: 33px;
+        height: 14px;
+        background-color: #999999;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgb(26, 102, 201);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        transform: translateX(0);
+      }
+
+      .toggle input:checked + .slider {
+        background: rgb(173, 216, 230);
+      }
+
+      .toggle input:checked + .slider .circle {
+        transform: translateX(65%);
+      }
+
+      .drop-down-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-right: 33px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 8px;
+        background-color: rgb(247, 247, 247);
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      label {
+        font-size: 15px;
+        padding-left: 7px;
+        color: #111;
+        font-weight: bold;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+
+      .drop-down-wrapper select {
+        width: 100%;
+        padding: 1rem 0;
+        margin-left: 12px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-weight: 15px;
+        background: transparent;
+      }
+
+      .drop-down-wrapper #provider {
+        font-family: Arial;
+        font-size: 17px;
+      }
+
+      .id-input-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .id-input-wrapper label {
+        padding-left: 12px;
+      }
+
+      .id-input-wrapper input {
+        border-radius: 10px;
+        margin-bottom: 8px;
+        background-color: rgb(247, 247, 247);
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);      
+        padding: 1rem 10px;
+        border: none;
+        outline: none;
+      }
+
+      .amount-container {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+      }
+
+      .amount-wrapper {
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        padding: 0 10px;
+        background-color: rgb(247, 247, 247);
+        box-shadow: 1px 0.3px 2px rgba(0, 0, 0, 0.02);
+      }
+
+      .amount-wrapper input {
+        width: 100%;
+        border: none;
+        padding: 1rem 5px;
+        outline: none;
+        font-size: 16px;
+        background: transparent; 
+      }
+
+      .amount-wrapper button {
+        background: rgb(26, 102, 201);
+        color: #fff;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 7px 34px;
+        border-radius: 20px;
+        font-family: "Lato", sans-serif;
+      }
+    </style>
+    <title>Pay Electricity</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title-wrapper">
+          <span class="material-symbols-outlined back-icon" tabindex="0"
+            >arrow_back_ios</span
+          >
+          <span class="title">Pay Electricity</span>
+        </div>
+      </header>
+
+      <form action="#">
+        <div class="btn-wrapper">
+          <button type="button" onclick="selectPrepaid()" id="prepaid">Prepaid</button>
+          <button type="button" onclick="selectPostpaid()" id="postpaid">Postpaid</button>
+        </div>
+
+        <!-- Toggle Switch -->
+        <div class="toggle-wrapper">
+          <label class="toggle">
+            <input type="checkbox" id="saveBeneficiary" />
+            <div class="slider">
+              <div class="circle"></div>
+            </div>
+          </label>
+          <span>Save as beneficiary</sapn>
+        </div>
+
+        <div class="drop-down-wrapper">
+          <select name="beneficiary" id="beneficiary">
+            <option value="" selected hidden disabled>
+              Select Beneficiary
+            </option>
+          </select>
+        </div>
+
+        <label>Select Provider</label>
+        <div class="drop-down-wrapper">
+          <select name="provider" id="provider">
+            <option value="" selected hidden disabled>AEDC</option>
+          </select>
+        </div>
+
+        <div class="id-input-wrapper">
+          <label>Meter ID</label>
+          <input type="tel" id="ID_input" placeholder="E.g 234 xxx xxx" />  
+        </div>
+
+        <div class="amount-container">
+          <label>Amount to Pay</label>
+        <div class="amount-wrapper">
+          <span>
+            <svg
+            fill="#000000"
+            width="18px"
+            height="18px"
+            viewBox="0 0 24 24"
+            id="naira"
+            data-name="Flat Color"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon flat-color"
+          >
+            <path
+              id="primary"
+              d="M20,13H18V11h2a1,1,0,0,0,0-2H18V3a1,1,0,0,0-2,0V9H11.48L7.87,2.51A1,1,0,0,0,6,3V9H4a1,1,0,0,0,0,2H6v2H4a1,1,0,0,0,0,2H6v6a1,1,0,0,0,2,0V15h4.52l3.61,6.49A1,1,0,0,0,17,22a1.07,1.07,0,0,0,.25,0A1,1,0,0,0,18,21V15h2a1,1,0,0,0,0-2Zm-4-2v2H13.7l-1.11-2ZM8,6.86,9.19,9H8ZM8,13V11h2.3l1.11,2Zm8,4.14L14.81,15H16Z"
+              style="fill: #111"
+            ></path>
+          </svg>
+          </span>
+          <input
+            type="tel"
+            id="amount"
+            maxlength="9"
+            placeholder="1,000-500,000"
+          />
+          <button type="submit" class="submit-btn">Pay</button>
+        </div>
+      </div>
+      </form>
+    </div>
+
+    <script>
+      // Back icon
+      document.querySelector(".back-icon").addEventListener("click", () => {
+        history.back()
+      })
+
+    // Toggle between Prepaid and Postpaid 
+  const prepaid = document.getElementById("prepaid");
+  const postpaid = document.getElementById("postpaid");
+
+  // Select Prepaid
+  function selectPrepaid() {
+    prepaid.classList.add("show");
+    postpaid.classList.remove("show");
+  }
+
+  // Select Postpaid
+  function selectPostpaid() {
+    postpaid.classList.add("show");
+    prepaid.classList.remove("show");
+  }
+
+  selectPrepaid();
+</script>
+    </script>
+  </body>
+</html>
